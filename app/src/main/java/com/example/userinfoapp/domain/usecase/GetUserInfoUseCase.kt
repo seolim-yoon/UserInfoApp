@@ -9,6 +9,6 @@ class GetUserInfoUseCase @Inject constructor(private val userInfoRepository: Use
     fun getUserInfoListFromLocal(): Flow<List<DataModel>> =
         userInfoRepository.getUserInfoListFromLocal()
 
-    suspend fun getUserInfoListFromRemote(query: String): Flow<List<Long>> =
+    suspend fun getUserInfoListFromRemote(query: String) =
         userInfoRepository.getUserInfoListFromRemote(query)
 }

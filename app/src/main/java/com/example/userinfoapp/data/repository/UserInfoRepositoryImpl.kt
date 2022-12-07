@@ -39,9 +39,9 @@ class UserInfoRepositoryImpl @Inject constructor(
         listOf(HeaderModel("'${GET_QUERY}' Users (Like)")) + heartList + listOf(HeaderModel("'${GET_QUERY}' Users (No Like)")) + noHeartList
     }.flowOn(Dispatchers.IO)
 
-    override suspend fun getUserInfoListFromRemote(query: String): Flow<List<Long>> = flow {
+    override suspend fun getUserInfoListFromRemote(query: String) {
         userInfoRemoteDataSource.getUserInfoListFromRemote(query).collect {
-            emit(userInfoLocalDataSource.insertAllUserList(it.items))
+            userInfoLocalDataSource.insertAllUserList(it.items)
         }
-    }.flowOn(Dispatchers.IO)
+    }
 }

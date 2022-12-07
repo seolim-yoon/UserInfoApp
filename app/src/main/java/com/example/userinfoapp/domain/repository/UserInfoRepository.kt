@@ -8,5 +8,5 @@ interface UserInfoRepository {
 
     fun getUserInfoListFromLocal(): Flow<List<DataModel>>
 
-    suspend fun getUserInfoListFromRemote(query: String): Flow<List<Long>>
+    suspend fun getUserInfoListFromRemote(query: String)
 }
